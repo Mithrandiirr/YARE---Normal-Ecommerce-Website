@@ -14,7 +14,9 @@
   </div>
   <div class="home-buttons">
     <div class="home-hover" >
-       <a class="home-button" ><span class="xdd">Secured Warranted Elegant</span></a>
+       <a href="{{asset('unranked')}}" class="home-button" >Unranked</a>
+       <a href="{{asset('botted')}}" class="home-button" >Botted</a>
+       <a href="{{asset('regular')}}" class="home-button" >Regular</a>
 
      </a>
 

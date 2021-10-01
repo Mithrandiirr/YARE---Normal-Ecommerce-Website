@@ -46,6 +46,9 @@
                    <a href="https://discord.gg/DeKcFEJN" class="nav-link">Support Server</a>
                  </li>
                  <li class="nav-item">
+                    <a href="{{asset('contact')}}" class="nav-link">Contact Us</a>
+                  </li>
+                 <li class="nav-item">
                    <a href="{{asset('/faq')}}" class="nav-link">FAQ</a>
                  </li>
                  <li class="nav-item">

@@ -64,12 +64,19 @@
     </tbody>
       @foreach ($products as $product)
               <tr>
+                  <?php  if($product->account_type === "1")
+                  $variable = "Unranked";
+                  elseif($product->account_type === "2")
+                  $variable = "Botted";
+else
+$variable = "Regular";
+                  ?>
                      <td>{{$product->id}}</td>
-                     <td><img src="{{asset('imagg/accounts')}}/{{$product->image}}" width="60"></td>
+                     <td><img src="{{asset('imagg/accounts')}}/@if($product->account_type === "1")unranked.png @elseif($product->account_type === "2")botted.png @elseif($product->ranked ==="1" && $product->account_type === "3" )bronze.png @elseif($product->ranked === "2" && $product->account_type === "3")silver.png @elseif($product->ranked==="3" && $product->account_type === "3")gold.png @elseif($product->ranked ==="4" && $product->account_type === "3")plat.png @elseif($product->ranked ==="5" && $product->account_type === "3")diam.png @elseif($product->ranked=== "6" && $product->account_type ==="3")master.png @elseif($product->ranked ==="7")challenger.png  @endif" width="60"></td>
                      <td>{{$product->name}}</td>
                      <td>{{$product->regular_price}}$</td>
                     <td>{{$product->category->name}}</td>
-                    <td><b>{{$product->account_type}}</b></td>
+                    <td><b>{{$variable}}</b></td>
                      <td>{{$product->created_at}}</td>
                      <td>
                      <a href="{{route('admin.editproduct',['product_slug'=>$product->slug])}}"><i class="fa fa-edit text-info"></i></a>

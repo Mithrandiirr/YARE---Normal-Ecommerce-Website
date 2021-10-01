@@ -1,3 +1,22 @@
+<?php if($product->type === "1" )
+$variable = "Handmade";
+else
+    $variable = "Botted";
+if($product->ranked === "1")
+$ranked = "Bronze";
+elseif($product->ranked === "2")
+$ranked = "Silver";
+elseif($product->ranked === "3")
+$ranked = "Gold";
+elseif($product->ranked === "4")
+$ranked = "Platinium";
+elseif($product->ranked === "5")
+$ranked = "Diamond";
+elseif($product->ranked === "6")
+$ranked = "Master";
+else
+$ranked = "Challenger";
+?>
 <main>
     <section class="hero">
      <div class="main-message">
@@ -46,8 +65,16 @@
    </div>
    <div id="details">
      <h3>Type of The Account</h3>
-     <p> {{$product->type}} Account</p>
+     <p> {{$variable}} Account</p>
    </div>
+   <div id="details">
+    <h3>RP</h3>
+    <p> {{$product->rp}}</p>
+  </div>
+  <div id="details">
+    <h3>URF Ranked</h3>
+    <p> {{$product->urf}}</p>
+  </div>
    <div id="details">
      <h3>Ward Skins</h3>
      <p>{{$product->ward}}</p>
@@ -64,7 +91,7 @@
          <span class="levell">{{$product->level}}</span>
        </div>
        <div class="rank">
-         <span class="rank1">{{$product->ranked}}</span>
+         <span class="rank1">{{$ranked}}</span>
        </div>
        <div class="levelup">
          <span class="levelup1">

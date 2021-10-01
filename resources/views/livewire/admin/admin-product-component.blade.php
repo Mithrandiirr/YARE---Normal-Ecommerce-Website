@@ -32,10 +32,11 @@
        </tr>
    </thead>
 </tbody>
+
   @foreach ($products as $product)
           <tr>
                  <td>{{$product->id}}</td>
-                 <td><img src="{{asset('imagg/accounts')}}/{{$product->image}}" width="60"></td>
+                 <td><img src="{{asset('imagg/accounts/unranked.png')}}" width="60"></td>
                  <td>{{$product->name}}</td>
                  <td>{{$product->regular_price}}</td>
                 <td>{{$product->category_name}}</td>

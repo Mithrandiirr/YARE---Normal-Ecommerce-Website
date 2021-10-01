@@ -31,6 +31,8 @@ class AdminAddProductComponent extends Component
     public $ranked;
     public $honor;
     public $be;
+    public $rp;
+    public $urf;
     public $account_type;
     public function generateSlug()
     {
@@ -45,7 +47,7 @@ class AdminAddProductComponent extends Component
         'icons' => 'required|numeric',
         'type' => 'required',
         'previous_ranked' => 'required',
-        'image' => 'required|mimes:jpeg,png',
+        // 'image' => 'required|mimes:jpeg,png',
         'category_id' => 'required',
         'date_ofcreation'=> 'required',
         'skins' => 'required|numeric',
@@ -54,6 +56,8 @@ class AdminAddProductComponent extends Component
         'ranked' => 'required',
         'honor' => 'required',
         'be' =>'required|numeric',
+        'rp' =>'required|numeric',
+        'urf' =>'required',
         'account_type'=> 'required'
     ]);
     }
@@ -67,7 +71,7 @@ class AdminAddProductComponent extends Component
         'icons' => 'required|numeric',
         'type' => 'required',
         'previous_ranked' => 'required',
-        'image' => 'required|mimes:jpeg,png',
+        // 'image' => 'required|mimes:jpeg,png',
         'category_id' => 'required',
         'date_ofcreation'=> 'required',
         'skins' => 'required|numeric',
@@ -76,6 +80,8 @@ class AdminAddProductComponent extends Component
         'ranked' => 'required',
         'honor' => 'required',
         'be' =>'required|numeric',
+        'rp' =>'required|numeric',
+        'urf' =>'required',
         'account_type'=> 'required'
 
         ]);
@@ -96,12 +102,13 @@ class AdminAddProductComponent extends Component
         $product->ranked =  $this->ranked;
         $product->honor =  $this->honor;
         $product->be =  $this->be;
-        if($this->image)
-        {
-            $imageName = Carbon::now()->timestamp.'.'. $this->image->extension();
-            $this->image->storeAs('accounts',$imageName);
-            $product->image = $imageName;
-        }
+        $product->rp =  $this->rp;
+        $product->urf =  $this->urf;
+
+            // $imageName = Carbon::now()->timestamp.'.'. $this->image->extension();
+            // $this->image->storeAs('accounts',$imageName);
+            // $product->image = $imageName;
+
         $product->category_id = $this->category_id;
         $product->account_type =$this->account_type;
         $product->save();
@@ -112,8 +119,9 @@ class AdminAddProductComponent extends Component
     }
     public function render()
     {
+$product = new Product();
 $types = AccountType::all();
         $categories = Category::all();
-        return view('livewire.admin.admin-add-product-component',['categories'=>$categories,'types'=>$types])->layout('layouts.admin-category');
+        return view('livewire.admin.admin-add-product-component',['product'=>$product,'categories'=>$categories,'types'=>$types])->layout('layouts.admin-category');
     }
 }

@@ -25,6 +25,7 @@
 
 
               <div class="items">
+                <span class="item "  data-name="all"  onclick="window.location.href='{{asset('accounts')}}'">ALL</span>
                 <span class="item "  data-name="unranked"  onclick="window.location.href='{{route('unranked')}}'">Unranked Accounts</span>
                 <span class="item" data-name="regular" onclick="window.location.href='{{route('regular')}}'">Regular Accounts</span>
                 <span class="item active" data-name="botted" onclick="window.location.href='{{route('botted')}}'">Botted Accounts</span>
@@ -34,7 +35,7 @@
             </nav>
             <nav class="servers">
               <div class="itemss">
-
+                <span id="all"   class="item1 active"  data-name="all"  onclick="btnClick(this)">ALL</span>
                 <span id="span-euw"   class="item1"  data-name="euw"  onclick="btnClick(this)">EUW</span>
                 <span id="span-na" class="item2" data-name="na" onclick="btnClick(this)">NA</span>
                 <span id="span-eune" class="item5" data-name="eune" onclick="btnClick(this)">EUNE</span>
@@ -59,39 +60,40 @@
 
 
         <div id="Accounts" class="activities-grid">
-
             @foreach ($bottedd as $botted)
 
+            <div onclick="window.location.href='{{route('product.details',$botted->slug)}}'" class="contenedorCards" id="{{$botted->short_description}}">
+                <div class="carte">
+                  <div class="wrapper">
+                    <div class="colorProd" style="background: url({{asset('test1.jpg')}})"></div>
+                    <div class="imgProd" style="background-image: url({{asset('/imagg/accounts')}}/{{$botted->image}}"></div>
+                    <div class="infoProd">
+                      <p class="nombreProd">{{$botted->name}}</p>
+                      <p class="extraInfo">{{$botted->skins}} Skins, {{$botted->icons}} Icons, URF: {{$botted->ranked}}, <br>{{$botted->ward}} Ward Skins, Server: {{$botted->short_description}}</p>
+                      <div class="actions">
+                        <div class="preciosGrupo">
 
-                <div onclick="window.location.href='{{route('product.details',$botted->slug)}}'" id="{{$botted->short_description}}" class="activities-grid-item bla" style=" background-image: url({{asset('/imagg/accounts')}}/{{$botted->image}}"  >
-
-                  <h1 class="activities-h1">
-    {{$botted->short_description}}
-                  </h1>
-
-
-                      <h6 class="iconss">
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="far fa-star"></i>
-                      </h6>
-
-
-
-
-
-                               <div class="card-stuff">
-
-                            <p class="card-text">{{$botted->name}}</p>
-                            <span class="price">{{$botted->regular_price}}</span>
-                            ?>
+                          <p class="precio precioProd">{{$botted->regular_price}}$</p>
                         </div>
 
-                </div>
+                        <div class="icono action alCarrito">
+                          <svg class="inCart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                            <title>Quitar del carrito</title>
+                            <path d="M30 22H12M2 6h6l10 40h32l3.2-9.7"></path>
+                            <circle cx="20" cy="54" r="4"></circle>
+                            <circle cx="46" cy="54" r="4"></circle>
+                            <circle cx="46" cy="22" r="16"></circle>
+                            <path d="M53 18l-8 9-5-5"></path>
+                          </svg>
 
-            @endforeach
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+</div>
+        @endforeach
+</div>
 
 
  {{-- @foreach ($products as $product)

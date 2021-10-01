@@ -131,7 +131,7 @@ right: -25rem;
 .hero{
 	width: 100%;
 	height: 80vh;
-	background: linear-gradient(rgb(80 99 80 / 49%), rgb(0 0 0 / 64%)), url(baron.jpg) no-repeat fixed center;
+	background: linear-gradient(rgb(80 99 80 / 49%), rgb(0 0 0 / 64%)), url(header.png) no-repeat fixed center;
 	background-size: cover;
 	    background-position-y: 0px;
 	position: relative;
@@ -263,7 +263,7 @@ animation: animate 0.7s ease-in-out;
 }
 
 .activities-grid-item h1{
-	font-family: 'Aldrich' ,sans-serif; */
+	font-family: 'Aldrich' ,sans-serif;
     font-size: 22px;
     text-align: center;
     /* text-transform: uppercase; */
@@ -436,11 +436,11 @@ text-decoration: none!important;
     font-weight: 800;
 }
 .home-button:hover {
-	background-position: -100%
+	background-position: -100%;
 }
 
 
-@media	screen and (max-height: : 750px){
+@media	screen and (max-height:  750px){
 	.home-button {
 		position: absolute;
 		left: 400px;
@@ -873,15 +873,15 @@ text-align: center;
 	font-size: 18px;
 	font-weight: 500;
 	cursor: pointer;
-	color: #bd2634;
+	color: #534679;
 
-	border: 2px solid #bd2634;
+	border: 2px solid #534679;
 	transition: all 0.3s ease;
   }
   .items span.active,
   .items span:hover{
 	color: #fff;
-	background: #bd2634;
+	background: #534679;
   }
   .itemss {
 	display: flex;
@@ -899,15 +899,15 @@ text-align: center;
 	font-size: 18px;
 	font-weight: 500;
 	cursor: pointer;
-	color: #bd2634;
-
-	border: 2px solid #bd2634;
+	color: #534679;
+margin: 5px 0;
+	border: 2px solid #9287b5;
 	transition: all 0.3s ease;
   }
   .itemss span.active,
   .itemss span:hover{
 	color: #fff;
-	background: #bd2634;
+	background: #9287b5;
   }
   .gallery{
 	display: flex;
@@ -955,7 +955,7 @@ text-align: center;
   }
   .wrapper .items{
     display: flex;
-    max-width: 755px;
+
     flex-wrap: wrap;
     width: 100%;
     justify-content: space-between;
@@ -1328,4 +1328,183 @@ a:hover{
 }
 .nav__listitemdrop li:hover, .nav__listitemdrop li:focus {
     background-color: #fce4ec;
+}
+/* -----------------------------CARD -----------------------*/
+.carte{
+    border:none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+ .contenedorCards {
+	 display: flex;
+	 flex-direction: row;
+	 flex-wrap: wrap;
+	 align-items: center;
+	 justify-content: center;
+	 align-content: center;
+	 min-height: 80vh;
+	 padding: 0 0;
+	 box-sizing: border-box;
+}
+ .contenedorCards .carte {
+	 width: 315px;
+	 transition: ease all 0.3s;
+}
+ .contenedorCards .carte.esFav .wrapper .infoProd .actions .action.aFavs {
+	 transform: rotateX(360deg) scale(1.2);
+}
+ .contenedorCards .carte.esFav .wrapper .infoProd .actions .action.aFavs svg path, .contenedorCards .carte.esFav .wrapper .infoProd .actions .action.aFavs svg circle {
+	 fill: #fff;
+	 transition-delay: 0.2s;
+}
+ .contenedorCards .carte.enCarrito .wrapper .infoProd .actions .action.alCarrito .inCart {
+	 transform: scale(1);
+}
+ .contenedorCards .carte.enCarrito .wrapper .infoProd .actions .action.alCarrito .outCart {
+	 transform: scale(0);
+}
+ .contenedorCards .carte .wrapper {
+    border-radius: 25px;
+	 margin: 60px 10px 10px 10px;
+	 padding-top: 300px;
+	 box-sizing: border-box;
+	 position: relative;
+	 box-shadow: 0 0 20px 10px rgba(29, 29, 29, .1);
+	 transition: ease all 0.3s;
+}
+
+ .contenedorCards .carte .wrapper:hover .imgProd {
+	 height:   240px;;
+}
+ .contenedorCards .carte .wrapper .colorProd {
+	 display: block;
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 200px;
+	 background-color:      #320b1c;;
+}
+ .contenedorCards .carte .wrapper .imgProd {
+	 background-size: contain;
+	 background-position: center bottom;
+	 background-repeat: no-repeat;
+	 position: absolute;
+	 bottom: calc(100% - 260px);
+	 width: 100%;
+	 height: 230px;
+	 transition: ease all 0.3s;
+}
+ .contenedorCards .carte .wrapper .infoProd {
+	 display: flex;
+	 flex-direction: column;
+	 flex-wrap: nowrap;
+	 align-items: center;
+	 justify-content: center;
+	 align-content: center;
+	 height: 170px;
+	 padding: 20px;
+	 box-sizing: border-box;
+}
+ .contenedorCards .carte .wrapper .infoProd p {
+	 width: 100%;
+	 font-size: 14px;
+	 text-align: center;
+}
+ .contenedorCards .carte .wrapper .infoProd .nombreProd {
+    font-family: 'Rubik';
+
+	 margin-bottom: 0;
+     bottom: 20px;
+     position: relative;
+	 font-size: 16px;
+	 font-weight: 600;
+
+	 -webkit-box-orient: vertical;
+
+	 text-overflow: ellipsis;
+	 display: -webkit-box;
+}
+ .contenedorCards .carte .wrapper .infoProd .extraInfo {
+	 text-overflow: ellipsis;
+	 white-space: nowrap;
+     bottom: 10px;
+    position: relative;
+    font-family: 'Nunito';
+}
+ .contenedorCards .carte .wrapper .infoProd .actions {
+	 display: flex;
+	 flex-direction: row;
+	 flex-wrap: wrap;
+	 align-items: center;
+	 justify-content: space-between;
+	 align-content: center;
+	 width: 100%;
+	 margin-top: auto;
+	 padding-top: 10px;
+}
+ .contenedorCards .carte .wrapper .infoProd .actions .preciosGrupo {
+	 flex-grow: 1;
+	 position: relative;
+}
+ .contenedorCards .carte .wrapper .infoProd .actions .preciosGrupo .precio {
+    font-family: "Aldrich", sans-serif;
+    color: #8f2151;
+    font-size: 25px;
+    font-weight: 100;
+    /* text-align: left; */
+    position: relative;
+    left: 10%;
+
+}
+ .contenedorCards .carte .wrapper .infoProd .actions .preciosGrupo .precio.precioOferta {
+	 position: absolute;
+	 left: 0;
+	 top: -15px;
+	 color: red;
+	 font-size: 15px;
+	 text-decoration: line-through;
+}
+ .contenedorCards .carte .wrapper .infoProd .actions .preciosGrupo .precio.precioOferta:before {
+	 font-size: 12px;
+}
+ .contenedorCards .carte .wrapper .infoProd .actions .preciosGrupo .precio:before {
+	 content: var(--currencyPrefix);
+	 font-size: 20px;
+}
+ .contenedorCards .carte .wrapper .infoProd .actions .action {
+	 display: flex;
+	 flex-direction: row;
+	 flex-wrap: wrap;
+	 align-items: center;
+	 justify-content: center;
+	 align-content: center;
+	 margin-left: 15px;
+	 width: 35px;
+	 height: 35px;
+	 position: relative;
+	 transition: cubic-bezier(0.68, -0.55, 0.27, 1.55) all 0.3s;
+	 cursor: pointer;
+	 color: #1d1d1d;
+}
+ .contenedorCards .carte .wrapper .infoProd .actions .action svg {
+	 position: absolute;
+	 transition: cubic-bezier(0.68, -0.55, 0.27, 1.55) all 0.3s;
+}
+ .contenedorCards .carte .wrapper .infoProd .actions .action svg path, .contenedorCards .carte .wrapper .infoProd .actions .action svg circle {
+	 stroke: currentColor;
+	 fill: transparent;
+	 transition: ease all 0.3s;
+}
+ .contenedorCards .carte .wrapper .infoProd .actions .action.aFavs {
+	 position: absolute;
+	 top: 20px;
+	 right: 20px;
+	 z-index: 1;
+	 width: 25px;
+	 height: 25px;
+	 color: #fff;
+}
+ .contenedorCards .carte .wrapper .infoProd .actions .action.alCarrito svg.inCart {
+	 transform: scale(0);
 }

@@ -44,7 +44,7 @@
 
 
                                 <th>Role Name</th>
-                                <th class="text-center">Modify</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -68,15 +68,7 @@
                                     @if($item->utype ==='USR')
                                     <td class="role_name"><span  class=" badge bg-warning">{{ $item->utype }}</span></td>
                                     @endif
-                                    <td class="text-center">
-                                        <a href="{{ route('user/add/new') }}">
-                                            <span class="badge bg-info"><i class="bi bi-person-plus-fill"></i></span>
-                                        </a>
-                                        <a href="{{ url('view/detail/'.$item->id) }}">
-                                            <span class="badge bg-success"><i class="bi bi-pencil-square"></i></span>
-                                        </a>
-                                        <a href="{{ url('delete_user/'.$item->id) }}" onclick="return confirm('Are you sure to want to delete it?')"><span class="badge bg-danger"><i class="bi bi-trash"></i></span></a>
-                                    </td>
+
                                 </tr>
                             @endforeach
                         </tbody>
@@ -88,12 +80,9 @@
     <footer>
         <div class="footer clearfix mb-0 text-muted ">
             <div class="float-start">
-                <p>2021 &copy; Soeng Souy</p>
+                <p>2021 &copy; YARE</p>
             </div>
-            <div class="float-end">
-                <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                href="http://soengsouy.com">Soeng Souy</a></p>
-            </div>
+
         </div>
     </footer>
 </div>

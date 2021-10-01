@@ -60,6 +60,7 @@ indicators.forEach((item, i) => {
 
 function btnClick(btn){
     const name = btn.getAttribute('data-name');
+    const span0 = document.getElementById("all");
     const span1 = document.getElementById("span-euw");
     const span2 = document.getElementById("span-na");
     const span3 = document.getElementById("span-tr");
@@ -74,8 +75,10 @@ function btnClick(btn){
     const eune = document.querySelectorAll('#eune');
     const br = document.querySelectorAll('#br');
     const tr = document.querySelectorAll('#tr')
+
     switch(name){
         case 'euw':
+          span0.classList.remove('active');
           span1.classList.add('active');
           span2.classList.remove('active');
           span3.classList.remove('active');
@@ -83,7 +86,9 @@ function btnClick(btn){
           span5.classList.remove('active');
           span6.classList.remove('active');
           for (i = 0; i < euw.length; i++) {
+
             euw[i].style.display = "flex";
+            euw[i].style.animation = "animate 0.7s ease-out";
           }
           for (i = 0; i < na.length; i++) {
             na[i].style.display = "none";
@@ -102,6 +107,7 @@ function btnClick(btn){
           }
             break;
             case 'na' :
+                span0.classList.remove('active');
               span2.classList.add('active');
               span1.classList.remove('active');
               span3.classList.remove('active');
@@ -113,6 +119,7 @@ function btnClick(btn){
               }
               for (i = 0; i < na.length; i++) {
                 na[i].style.display = "flex";
+                na[i].style.animation = "animate 0.7s ease-out";
               }
               for (i = 0; i < tr.length; i++) {
                 tr[i].style.display = "none";
@@ -128,6 +135,7 @@ function btnClick(btn){
               }
                 break;
                 case 'tr' :
+                    span0.classList.remove('active');
                   span3.classList.add('active');
                   span2.classList.remove('active');
                   span1.classList.remove('active');
@@ -142,6 +150,7 @@ function btnClick(btn){
                   }
                   for (i = 0; i < tr.length; i++) {
                     tr[i].style.display = "flex";
+                    tr[i].style.animation = "animate 0.7s ease-out";
                   }
                   for (i = 0; i < oce.length; i++) {
                     oce[i].style.display = "none";
@@ -154,6 +163,7 @@ function btnClick(btn){
                   }
                     break;
                     case 'br' :
+                        span0.classList.remove('active');
                   span4.classList.add('active');
                   span2.classList.remove('active');
                   span1.classList.remove('active');
@@ -177,9 +187,11 @@ function btnClick(btn){
                   }
                   for (i = 0; i < br.length; i++) {
                     br[i].style.display = "flex";
+                    tr[i].style.animation = "animate 0.7s ease-out";
                   }
                     break;
                     case 'eune' :
+                        span0.classList.remove('active');
                       span4.classList.remove('active');
                       span2.classList.remove('active');
                       span1.classList.remove('active');
@@ -200,12 +212,14 @@ function btnClick(btn){
                       }
                       for (i = 0; i < eune.length; i++) {
                         eune[i].style.display = "flex";
+                        eune[i].style.animation = "animate 0.7s ease-out";
                       }
                       for (i = 0; i < br.length; i++) {
                         br[i].style.display = "none";
                       }
                         break;
                         case 'oce' :
+                          span0.classList.remove('active');
                           span4.classList.remove('active');
                           span2.classList.remove('active');
                           span1.classList.remove('active');
@@ -223,6 +237,7 @@ function btnClick(btn){
                           }
                           for (i = 0; i < oce.length; i++) {
                             oce[i].style.display = "flex";
+                            oce[i].style.animation = "animate 0.7s ease-out";
                           }
                           for (i = 0; i < eune.length; i++) {
                             eune[i].style.display = "none";
@@ -231,6 +246,40 @@ function btnClick(btn){
                             br[i].style.display = "none";
                           }
                             break;
+                            case 'all':
+                                span0.classList.add('active');
+                                span4.classList.remove('active');
+                                span2.classList.remove('active');
+                                span1.classList.remove('active');
+                                span3.classList.remove('active');
+                                span5.classList.remove('active');
+                                span6.classList.remove('active');
+                                for (i = 0; i < euw.length; i++) {
+                                  euw[i].style.display = "flex";
+                                  euw[i].style.animation = "animate 0.7s ease-out";
+                                }
+                                for (i = 0; i < na.length; i++) {
+                                  na[i].style.display = "flex";
+                                  na[i].style.animation = "animate 0.7s ease-out";
+                                }
+                                for (i = 0; i < tr.length; i++) {
+                                  tr[i].style.display = "flex";
+                                  tr[i].style.animation = "animate 0.7s ease-out";
+                                }
+                                for (i = 0; i < oce.length; i++) {
+                                  oce[i].style.display = "flex";
+                                  oce[i].style.animation = "animate 0.7s ease-out";
+                                }
+                                for (i = 0; i < eune.length; i++) {
+                                  eune[i].style.display = "flex";
+                                  eune[i].style.animation = "animate 0.7s ease-out";
+                                }
+                                for (i = 0; i < br.length; i++) {
+                                  br[i].style.display = "flex";
+                                  br[i].style.animation = "animate 0.7s ease-out";
+                                }
+                                break;
+
         default:
     }
 

@@ -22,7 +22,7 @@ session()->flash('message','Account has been deleted successfully!');
     return redirect()->back();}
     public function index()
     {
-        $products = Product::paginate(10);
+        $products = Product::paginate(50);
 
         return view('form.accounts', ['products' => $products]);
     }

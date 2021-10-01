@@ -30,6 +30,8 @@ class CreateProductsTable extends Migration
             $table->text('date_ofcreation');
             $table->string('level');
             $table->bigInteger('be');
+            $table->bigInteger('rp');
+            $table->string('urf');
             $table->string('honor');
             $table->string('image')->nullable();
             $table->text('images')->nullable();

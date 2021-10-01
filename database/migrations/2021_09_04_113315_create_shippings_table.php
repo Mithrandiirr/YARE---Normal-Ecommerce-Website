@@ -14,7 +14,7 @@ class CreateShippingsTable extends Migration
     public function up()
     {
         Schema::create('shippings', function (Blueprint $table) {
-            $table->id();
+            $table->id()->nullable();
             $table->timestamps();
         });
     }
