@@ -31,7 +31,7 @@ public function mount() {
         }else {
         $products = Product::paginate($this->pagesize);
         }
-        $bottedd = Product::where('account_type', 'botted')->get();
+        $bottedd = Product::where('account_type', '2')->get();
 
             $categories = Category::all();
             $types = AccountType::all();

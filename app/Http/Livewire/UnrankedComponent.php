@@ -31,7 +31,7 @@ public function mount() {
         }else {
         $products = Product::paginate($this->pagesize);
         }
-        $test = Product::where('account_type', 'unranked')->get();
+        $test = Product::where('account_type', '1')->get();
 
             $categories = Category::all();
             $types = AccountType::all();

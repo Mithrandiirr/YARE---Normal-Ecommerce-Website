@@ -31,7 +31,7 @@ public function mount() {
         }else {
         $products = Product::paginate($this->pagesize);
         }
-        $regulars = Product::where('account_type', 'regular')->get();
+        $regulars = Product::where('account_type', '3')->get();
             $categories = Category::all();
             $types = AccountType::all();
         return view('livewire.regular-component', ['regulars'=>$regulars,'products' => $products, 'categories'=> $categories,'types'=>$types])->layout("layouts.all");
