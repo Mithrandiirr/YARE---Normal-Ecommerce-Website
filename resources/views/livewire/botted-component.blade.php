@@ -66,7 +66,7 @@
                 <div class="carte">
                   <div class="wrapper">
                     <div class="colorProd" style="background: url({{asset('test1.jpg')}})"></div>
-                    <div class="imgProd" style="background-image: url({{asset('/imagg/accounts')}}/{{$botted->image}}"></div>
+                    <div class="imgProd" style="background-image: @if($botted->account_type === "1")url({{asset('/imagg/accounts')}}/{{"unranked.png"}}@elseif($botted->account_type === "2")url({{asset('/imagg/accounts')}}/{{"botted.png"}}@elseif($botted->ranked ==="1" && $botted->account_type === "3" )url({{asset('/imagg/accounts')}}/{{"bronze.png"}}@elseif($botted->ranked === "2" && $botted->account_type === "3")url({{asset('/imagg/accounts')}}/{{"silver.png"}}@elseif($botted->ranked==="3" && $botted->account_type === "3")url({{asset('/imagg/accounts')}}/{{"gold.png"}}@elseif($botted->ranked ==="4" && $botted->account_type === "3")url({{asset('/imagg/accounts')}}/{{"plat.png"}}@elseif($botted->ranked ==="5" && $botted->account_type === "3")url({{asset('/imagg/accounts')}}/{{"diam.png"}}@elseif($botted->ranked=== "6" && $botted->account_type ==="3")url({{asset('/imagg/accounts')}}/{{"master.png"}}@elseif($botted->ranked ==="7")url({{asset('/imagg/accounts')}}/{{"challenger.png"}}   @endif"></div>
                     <div class="infoProd">
                       <p class="nombreProd">{{$botted->name}}</p>
                       <p class="extraInfo">{{$botted->skins}} Skins, {{$botted->icons}} Icons, URF: {{$botted->ranked}}, <br>{{$botted->ward}} Ward Skins, Server: {{$botted->short_description}}</p>

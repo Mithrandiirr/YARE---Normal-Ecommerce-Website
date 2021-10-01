@@ -61,7 +61,7 @@
                     <div class="carte">
                       <div class="wrapper">
                         <div class="colorProd" style="background: url({{asset('test1.jpg')}})"></div>
-                        <div class="imgProd" style="background-image: url({{asset('/imagg/accounts')}}/{{$regular->image}}"></div>
+                        <div class="imgProd" style="background-image: @if($regular->ranked ==="1" && $regular->account_type === "3" )url({{asset('/imagg/accounts')}}/{{"bronze.png"}}@elseif($regular->ranked === "2" && $regular->account_type === "3")url({{asset('/imagg/accounts')}}/{{"silver.png"}}@elseif($regular->ranked==="3" && $regular->account_type === "3")url({{asset('/imagg/accounts')}}/{{"gold.png"}}@elseif($regular->ranked ==="4" && $regular->account_type === "3")url({{asset('/imagg/accounts')}}/{{"plat.png"}}@elseif($regular->ranked ==="5" && $regular->account_type === "3")url({{asset('/imagg/accounts')}}/{{"diam.png"}}@elseif($regular->ranked=== "6" && $regular->account_type ==="3")url({{asset('/imagg/accounts')}}/{{"master.png"}}@elseif($regular->ranked ==="7")url({{asset('/imagg/accounts')}}/{{"challenger.png"}}   @endif"></div>
                         <div class="infoProd">
                           <p class="nombreProd">{{$regular->name}}</p>
                           <p class="extraInfo">{{$regular->skins}} Skins, {{$regular->icons}} Icons, URF: {{$regular->ranked}}, <br>{{$regular->ward}} Ward Skins, Server: {{$regular->short_description}}</p>
