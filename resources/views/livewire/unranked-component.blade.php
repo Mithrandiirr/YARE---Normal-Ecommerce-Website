@@ -61,7 +61,7 @@
                     <div class="carte">
                       <div class="wrapper">
                         <div class="colorProd" style="background: url({{asset('test1.jpg')}})"></div>
-                        <div class="imgProd" style="background-image: url({{asset('/imagg/accounts')}}/{{$tes->image}}"></div>
+                        <div class="imgProd" style="background-image: url({{asset('/imagg/accounts/unranked.png')}}"></div>
                         <div class="infoProd">
                           <p class="nombreProd">{{$tes->name}}</p>
                           <p class="extraInfo">{{$tes->skins}} Skins, {{$tes->icons}} Icons, URF: {{$tes->ranked}}, <br>{{$tes->ward}} Ward Skins, Server: {{$tes->short_description}}</p>
