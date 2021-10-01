@@ -35,7 +35,7 @@ class CreateProductsTable extends Migration
             $table->string('honor');
             $table->string('image')->nullable();
             $table->text('images')->nullable();
-            $table->bigInteger('category_id')->unsigned()->nullable();
+            $table->bigInteger('category_id')->unsigned();
             $table->string('account_type');
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
