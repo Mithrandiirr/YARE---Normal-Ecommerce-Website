@@ -1,7 +1,6 @@
 <main>
     <div id="hey" class="alert alert-warning alert-dismissible fade show" role="alert">
-        Once your payment is successful , you will receive an email which has your account details for security purposes!<br>
-        Skrill Payments are not working temporarily !
+Demo Payments (TEST MODE ONLY)
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -14,7 +13,7 @@
     <button data-name="stripe" onclick="btnClick(this)"  class="list-group-item list-group-item-action" >
       <div class="d-flex w-100 justify-content-between">
         <div style="text-align:center; width:100%">
-            <img src="{{asset('imagg/accounts/stripe-logo.png')}}" style="width: 70px;"/><br>
+            <img src="{{asset('imagg/accounts/Stripe-Logo.png')}}" style="width: 70px;"/><br>
       </div >
       </div>
     </button>

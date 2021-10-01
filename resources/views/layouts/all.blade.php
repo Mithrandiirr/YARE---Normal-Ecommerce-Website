@@ -119,7 +119,7 @@
     {{$slot}}
 <!-- Footer-->
 <div class="credit-cards" style="text-align: center; width: 100% ; position: relative;">
-    <img height="35" src="{{asset('imagg/accounts/Stripe-Logo.png')}}"/>
+    <img height="35" src="{{asset('imagg/accounts/Stripe-L ogo.png')}}"/>
     <img height="20" src="{{asset('imagg/accounts/skrill.png')}}"/>
     <img height="45" src="{{asset('https://shoplineimg.com/assets/footer/card_paypal.png')}}"/>
 
