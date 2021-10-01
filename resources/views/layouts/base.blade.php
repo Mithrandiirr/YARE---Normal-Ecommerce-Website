@@ -95,7 +95,7 @@
 </header>
  {{$slot}}
  <div class="credit-cards" style="text-align: center; width: 100% ; position: relative;">
-    <img height="35" id="imggg" src="{{asset('imagg/accounts/stripe-logo.png')}}"/>
+    <img height="35" id="imggg" src="{{asset('imagg/accounts/Stripe-Logo.png')}}"/>
     <img height="20" id="imggg" src="{{asset('imagg/accounts/skrill.png')}}"/>
     <img height="45" id="imggg" src="{{asset('https://shoplineimg.com/assets/footer/card_paypal.png')}}"/>
 
