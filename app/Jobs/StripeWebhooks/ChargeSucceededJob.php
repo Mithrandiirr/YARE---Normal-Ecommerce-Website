@@ -10,7 +10,6 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Spatie\WebhookClient\Models\WebhookCall;
-use Illuminate\Support\Facades\Auth;
 
 class ChargeSucceededJob implements ShouldQueue
 {
@@ -25,19 +24,19 @@ class ChargeSucceededJob implements ShouldQueue
     public function __construct(WebhookCall $webhookCall)
     {
         $this->webhookCall = $webhookCall;
-
     }
 
-    public function handle()
+    public function handle(Request $request)
     {
-$charge = $this->webhookCall->payload['data'];
-$user = Auth::user();
-if($user) {
+$charge = $this->webhookCall->payload['data']['object'];
+
+if($request->type === 'charge.succeeded') {
       Payment::create([
-          'user_id' => $user->id,
+          'stripe_id' => $request->data['object']['id'],
           'stripe_id' =>$charge['id'],
+          'product_id' =>$charge['currency'],
           'amount' => $charge['amount'],
-          'product_id' =>$charge['balance_transaction'],
+
 
       ]);
       }
@@ -45,3 +44,4 @@ if($user) {
     }
 
 }
+

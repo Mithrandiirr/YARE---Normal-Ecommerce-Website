@@ -1,11 +1,56 @@
+<?php
+require_once(__DIR__.'/../../../vendor/autoload.php');
+
+
+\Stripe\Stripe::setApiKey('sk_test_51JX1BnCwSqIoxRpKte18TcaGSEegx1UX1NKYaKGDCwFkbyDWeYiQW4cKgy7OGbzsiSsOSFZaWr7AGeqRimsk5sdA00Xx6yZJhn');
+
+
+$session = \Stripe\Checkout\Session::create([
+    'success_url' => 'https://example.com/success',
+  'cancel_url' => 'https://example.com/cancel',
+  'payment_method_types' => ['card'],
+  'line_items' => [
+    [
+      'price' => $price_id,
+
+      'quantity' => 1,
+    ],
+  ],
+  'mode' => 'payment',
+  ]);
+//     'payment_method_types' => ['card'],
+
+//     'line_items' => [[
+
+//       'price_data' => [
+//         'currency' => 'usd',
+//         'product_data' => [
+//           'name' => 'T-shirt',
+//         ],
+//         'unit_amount' => 2000,
+//       ],
+//       'quantity' => 1,
+
+//     ]],
+
+//     'mode' => 'payment',
+//     'success_url' => 'https://example.com/success',
+//     'cancel_url' => 'https://example.com/cancel',
+//   ]);
+
+?>
 <main>
+
     <div id="hey" class="alert alert-warning alert-dismissible fade show" role="alert">
 Demo Payments (TEST MODE ONLY)
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
 <div class="list-group" style="    margin: 100px 120px;">
+    <h3>Account ID: #{{$product->id}}</h3>
+    <h3>Account ID: #{{auth()->user()->name}}</h3>
     <h1 style="align-self: center">Payment Method</h1>
     <div id="pay" class="pay">
     <div class="all">
@@ -36,17 +81,16 @@ Demo Payments (TEST MODE ONLY)
     <label class="new-control new-checkbox checkbox-primary">
       <input type="checkbox" required  >
 
-      <span class="new-control-indicator"></span>
+    <span class="new-control-indicator"></span>
       <span class="text-dark"> I agree to the
       <a href="#" target="_blank" class="text-primary px-1" style="text-decoration: none;">Terms of Use </a> &
       <a href="#" target="_blank" class="text-primary px-1" style="text-decoration: none;">Privacy Policy </a>
       </span>
 
       </label>
-
       <input type="submit" id="submitBtn" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">
   </form>
-  <div id="paypal-button-container"></div>
+  {{-- <div id="paypal-button-container"></div> --}}
 
 
 
@@ -63,7 +107,7 @@ Demo Payments (TEST MODE ONLY)
 
 
          </main>
-
+         <script src="https://js.stripe.com/v3/"></script>
          <script src="https://www.paypal.com/sdk/js?&client-id=AepLn_pHGVyanKtrWo0ls231oEc5DqftVfEMh-szpDCFwq_u7SfBN4Qza0DEU_cX0UXvCqx66-KRxXLf&currency=USD" data-namespace="paypal_sdk"></script>
          <script>
 
@@ -130,6 +174,72 @@ paypal_sdk.Buttons({
             amount: amount * 100
         });
       }) --}}
+<script>
+//  const stripee = document.getElementById("stripe-test")
+//     stripee.addEventListener('click', function(e) {
+//         e.preventDefault();
+//         fetch('/nyoho', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify(data),
+//         })
+//         .then((response) => response.json())
+//         .then((data) =>{
+//             console.log('Success', data);
+//         })
+//         .catch((error) => {
+//             console.error('Error',error);
+//         })
+//     })
 
+      function btnClick(btn){
+        var stripe = Stripe("pk_test_51JX1BnCwSqIoxRpKqaWSy6nwkGvHgOeaDni97F6R5VGaRi6G8s1BkAty6QNiwuJxtVbrvzlMLPF2OPPFMH3EbZmq00DMLewtGE");
+        const name = btn.getAttribute('data-name');
 
+        switch (name){
+                case 'paypal' :
+                document.getElementById("form1").addEventListener("submit",e => {
+                    e.preventDefault()
 
+                    location = "TEST.com";
+                  })
+                  break;
+                  case 'stripe':
+                  document.getElementById("form1").addEventListener("submit",e => {
+                        e.preventDefault();
+                        stripe.redirectToCheckout({
+                            sessionId: "<?php echo $session->id; ?>"
+                          });
+                        });
+                        break;
+                case 'payop':
+                document.getElementById("form1").addEventListener("submit",e => {
+                    e.preventDefault()
+                    location = "TEST.com";
+                  })
+                  break;
+                case 'skrill':
+                document.getElementById("form1").addEventListener("submit",e => {
+                    e.preventDefault()
+                    location = "";
+                  })
+                  break;
+                case 'bpayment' :
+                    document.getElementById("form1").addEventListener("submit",e => {
+                        e.preventDefault()
+                        location = "TEST.com";
+                      })
+                      break;
+                case 'paysera' :
+                    document.getElementById("form1").addEventListener("submit",e => {
+                        e.preventDefault()
+                        location = "HH.com";
+                      })
+                      break;
+                      default:
+        }
+
+    }
+</script>

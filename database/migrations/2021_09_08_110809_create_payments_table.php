@@ -16,11 +16,9 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->string('stripe_id'); // stripe payment id
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->string('product_id');
-            $table->string('amount');
-
+            $table->integer('amount');
+            $table->string('email');
+            $table->string('name');
             $table->timestamps();
         });
     }

@@ -5,17 +5,16 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 use Stripe\Stripe;
-
-require 'vendor/autoload.php';
+require_once(__DIR__.'/../../../vendor/autoload.php');
 
 $app = new \Slim\App;
 
 $app->add(function ($request, $response, $next) {
-  \Stripe\Stripe::setApiKey('{{env(STRIPE)}}');
+    Stripe\Stripe::setApiKey('sk_test_51JX1BnCwSqIoxRpKte18TcaGSEegx1UX1NKYaKGDCwFkbyDWeYiQW4cKgy7OGbzsiSsOSFZaWr7AGeqRimsk5sdA00Xx6yZJhn');
   return $next($request, $response);
 });
 
-$app->post('/create-checkout-session', function (Request $request, Response $response) {
+$app->post('/nyoho', function (Request $request, Response $response) {
   $session = \Stripe\Checkout\Session::create([
     'payment_method_types' => ['card'],
     'line_items' => [[

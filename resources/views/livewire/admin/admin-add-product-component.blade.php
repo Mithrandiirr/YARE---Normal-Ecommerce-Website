@@ -47,7 +47,13 @@
             @error('regular_price') <p class="text-danger">{{$message}}</p>@enderror
         </div>
     </div>
-
+    <div class="form-group">
+        <label class="col-md-4 control-label">Stripe Price ID</label>
+        <div class="col-md-4">
+            <input type="text" placeholder="Price ID" class="form-control input-md" wire:model="price_id"/>
+            @error('price_id') <p class="text-danger">{{$message}}</p>@enderror
+        </div>
+    </div>
 
     {{-- <div class="form-group">
         <label class="col-md-4 control-label" >Product Image</label>
@@ -192,8 +198,13 @@
     <div class="form-group">
         <label class="col-md-4 control-label"></label>
         <div class="col-md-4">
-            <button type="submit"  class="btn btn-primary" >Submit</button>
+            <button id="submit-button" type="submit"  class="btn btn-primary" >Submit</button>
         </div>
     </div>
                           </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script>
+
+
+    </script>

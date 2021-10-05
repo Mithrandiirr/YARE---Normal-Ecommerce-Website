@@ -34,6 +34,7 @@ class AdminAddProductComponent extends Component
     public $rp;
     public $urf;
     public $account_type;
+    public $price_id;
     public function generateSlug()
     {
         $this->slug = Str::slug($this->name,'-');
@@ -58,7 +59,8 @@ class AdminAddProductComponent extends Component
         'be' =>'required|numeric',
         'rp' =>'required|numeric',
         'urf' =>'required',
-        'account_type'=> 'required'
+        'account_type'=> 'required',
+        'price_id' =>'required',
     ]);
     }
     public function addProduct()
@@ -82,7 +84,8 @@ class AdminAddProductComponent extends Component
         'be' =>'required|numeric',
         'rp' =>'required|numeric',
         'urf' =>'required',
-        'account_type'=> 'required'
+        'account_type'=> 'required',
+        'price_id' =>'required',
 
         ]);
         $product = new Product();
@@ -104,6 +107,7 @@ class AdminAddProductComponent extends Component
         $product->be =  $this->be;
         $product->rp =  $this->rp;
         $product->urf =  $this->urf;
+        $product->price_id = $this->price_id;
 
             // $imageName = Carbon::now()->timestamp.'.'. $this->image->extension();
             // $this->image->storeAs('accounts',$imageName);

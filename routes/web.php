@@ -2,7 +2,10 @@
 use Illuminate\Http\Request;
 
 
-
+use App\Models\Payment;
+use App\Models\Product;
+use App\Http\Controllers\StripeController;
+use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\PaypalController;
 use App\Http\Livewire\TestComponent;
 use App\Http\Livewire\HomeComponent;
@@ -88,10 +91,30 @@ Route::get('/unranked/oce', UnrankedComponent::class);
 Route::get('/unranked/tr', UnrankedComponent::class);
 Route::get('/unranked/br', UnrankedComponent::class);
 Route::get('/pay1', Items1Component::class)->name('product.pay1');
+Route::get("/stripe", function(){
+    return view('stripe');
+});
+ Route::post('webhook/payment/succeeded', [App\Http\Controllers\StripePaymentController::class, 'stripePost']) ;
+//      if($request->type === "charge.succeeded"){
+//          try{
+//  Payment::create([
+//     'stripe_id' => $request->data['object']['id'],
+//      'amount' => $request->data['object']['amount'],
+//      'email' => $request->data['object']['billing_details']['email'],
+//      'name' => $request->data['object']['billing_details']['name'],
+//  ]);
+
+
+// } catch (\Exception $e) {
+//             return $e->getMessage();
+//         }
+//         return 'ok';
+//      }
+
 
 // Route::get('/euw', [App\Http\Controllers\LinksController::class ,'getEuw'])->name('accounts.euw');
 Route::get('/account/{slug}', DetailsComponent::class)->name('product.details');
-Route::stripeWebhooks('stripe');
+
 Route::get('/success', SuccessComponent::class)->name('success');
 Route::get('/contact', ContactComponent::class)->name('contact');
 Route::get('/faq', FaqComponent::class)->name('faq');

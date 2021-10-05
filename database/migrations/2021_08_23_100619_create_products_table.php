@@ -33,6 +33,7 @@ class CreateProductsTable extends Migration
             $table->bigInteger('rp');
             $table->string('urf');
             $table->string('honor');
+            $table->string('price_id')->unique();
             $table->string('image')->nullable();
             $table->text('images')->nullable();
             $table->bigInteger('category_id')->unsigned();
